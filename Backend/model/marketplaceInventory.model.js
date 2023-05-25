@@ -15,8 +15,10 @@ const marketplaceInventorySchema = mongoose.Schema({
   registrationPlace: { type: String, required: true }, 
   dealer: { type: mongoose.Schema.Types.ObjectId, ref: 'Dealer' }, 
   oemSpecs: { type: mongoose.Schema.Types.ObjectId, ref: 'OEMSpecs' }
-});
+},{versionKey:false});
 
-const MarketplaceInventory = mongoose.model('MarketplaceInventory', marketplaceInventorySchema);
+const MarketplaceInventoryModel = mongoose.model('MarketplaceInventory', marketplaceInventorySchema);
 
-module.exports = MarketplaceInventory;
+module.exports = {MarketplaceInventoryModel};
+
+

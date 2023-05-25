@@ -4,10 +4,9 @@ const dealerSchema = mongoose.Schema({
   name: {type: String,required: true},
   email: {type: String,required: true},
   password: {type: String,required: true},
-  contactNumber: {type: Number,required: true},
   inventory: [{type: mongoose.Schema.Types.ObjectId,ref: 'MarketplaceInventory'}]
-});
+},{versionKey:false});
 
-const Dealer = mongoose.model('Dealer', dealerSchema);
+const DealerModel = mongoose.model('Dealer', dealerSchema);
 
-module.exports = Dealer;
+module.exports = {DealerModel};

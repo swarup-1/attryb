@@ -1,11 +1,20 @@
 const express = require("express")
-const { connection } = require("./db")
 require('dotenv').config()
 const cors = require('cors')
+const { connection } = require("./db")
+const { MarketplaceInventoryRouter } = require("./routes/MarketplaceInventory.route")
+const { dealerRouter } = require("./routes/Dealer.route")
+const { OEMRouter } = require("./routes/OEM.route")
+const { auth } = require("./middleware/Auth.middleware")
 
 const app=express()
 app.use(cors())
 app.use(express.json())
+
+app.use("/dealer",dealerRouter)
+app.use(auth)
+app.use("/OEM",OEMRouter)
+app.use("/MarketplaceInventory",MarketplaceInventoryRouter)
 
 app.get("/",(req,res)=>{
     res.send("Home page")

@@ -3,17 +3,6 @@ const { MarketplaceInventoryModel } = require("../model/marketplaceInventory.mod
 
 const MarketplaceInventoryRouter = express.Router()
 
-// MarketplaceInventoryRouter.get("/",async(req,res)=>{
-//     const ID = req.body.dealer
-//     try{
-//         console.log('ID:', ID)
-//         const notes = await MarketplaceInventoryModel.find()
-//         res.send(notes)
-//     }catch(err){
-//         console.log({"msg":"Error Occured","error":err})
-//     }
-// })
-// get OEM Data with or without search
 MarketplaceInventoryRouter.get("/", async (req, res) => {
     let { search } = req.query;
     console.log('search:back', search)

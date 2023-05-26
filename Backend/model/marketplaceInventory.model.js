@@ -21,5 +21,3 @@ marketplaceInventorySchema.index({ title: "text", description: "text" });
 const MarketplaceInventoryModel = mongoose.model('MarketplaceInventory', marketplaceInventorySchema);
 
 module.exports = {MarketplaceInventoryModel};
-
-

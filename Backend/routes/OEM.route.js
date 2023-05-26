@@ -50,4 +50,3 @@ OEMRouter.post("/post",async(req,res)=>{
 module.exports={
     OEMRouter
 }
-// --------------------------------------------------------

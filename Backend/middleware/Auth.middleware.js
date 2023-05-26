@@ -16,7 +16,5 @@ const auth=(req,res,next)=>{
     }
 }
 
-module.exports={
-    auth
-}
+module.exports={auth}
 // --------------------------------------------------------

@@ -12,24 +12,24 @@ const AllRoutes = () => {
     <div>
         <Routes>
             <Route path="/" element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <Marketplace />
-              // </PrivateRoute>
+              </PrivateRoute>
             } />
             <Route path="/oem" element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <OEM />
-              // </PrivateRoute>
+              </PrivateRoute>
             } />
             <Route path="/oem/addcar/:id" element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <AddCar />
-              // </PrivateRoute>
+              </PrivateRoute>
             } />
             <Route path="/dealerinventory" element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <DealerInventory />
-              // </PrivateRoute>
+              </PrivateRoute>
             } />
             <Route path="/auth" element={
               <Authenticate />

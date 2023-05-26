@@ -24,7 +24,7 @@ const Filters = ({setData,data,from}) => {
             setData(colorFilter(data,value,from))
         }else if(value=="White"){
             setData(colorFilter(data,value,from))
-        }else if(value=="Green"){
+        }else if(value=="Red"){
             setData(colorFilter(data,value,from))
         }
     }
@@ -51,7 +51,7 @@ const Filters = ({setData,data,from}) => {
             <option value="Black">Black</option>
             <option value="White">White</option>
             <option value="Gray">Gray</option>
-            <option value="Green">Green</option>
+            <option value="Red">Red</option>
         </select>
         <select onChange={handleMileageFilter}>
             <option value="">Select Mileage</option>

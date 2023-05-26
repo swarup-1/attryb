@@ -3,8 +3,39 @@ const { MarketplaceInventoryModel } = require("../model/marketplaceInventory.mod
 
 const MarketplaceInventoryRouter = express.Router()
 
+// MarketplaceInventoryRouter.get("/",async(req,res)=>{
+//     const ID = req.body.dealer
+//     try{
+//         console.log('ID:', ID)
+//         const notes = await MarketplaceInventoryModel.find()
+//         res.send(notes)
+//     }catch(err){
+//         console.log({"msg":"Error Occured","error":err})
+//     }
+// })
+// get OEM Data with or without search
+MarketplaceInventoryRouter.get("/", async (req, res) => {
+    let { search } = req.query;
+    console.log('search:back', search)
+  
+    try {
+      const data = search ? await MarketplaceInventoryModel.find(
+          { $text: { $search: search } },
+          { score: { $meta: "textScore" } }
+          ).sort({ score: { $meta: "textScore" } }).populate('oemSpecs')
+          :
+          await MarketplaceInventoryModel.find().populate('oemSpecs')
+  
+      res.send(data);
+    } catch (err) {
+      res.send(err.message);
+      console.log('err:', err);
+    }
+  });
+
+
 // get specific dealer's Inventory
-MarketplaceInventoryRouter.get("/",async(req,res)=>{
+MarketplaceInventoryRouter.get("/dealer",async(req,res)=>{
     const ID = req.body.dealer
     try{
         console.log('ID:', ID)

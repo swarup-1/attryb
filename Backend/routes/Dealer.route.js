@@ -24,8 +24,10 @@ dealerRouter.post("/register",async(req,res)=>{
 })
 dealerRouter.post("/login",async(req,res)=>{
     const {email,password} = req.body
+    console.log('email,password:', email,password)
     try{
         const user = await DealerModel.find({email})
+        console.log('user:', user)
         let token = jwt.sign({dealerid:user[0]._id},"attryb") // passing userID so that we get it when we decode{in auth middleware}
         if(user.length>0){
             bcrypt.compare(password, user[0].password, function(err, result) {

@@ -3,7 +3,6 @@ import styles from '../Styles/OEMCard.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const OEMCard = ({ car }) => {
-    console.log('car:', car)
     const navigate = useNavigate();
 
   return (

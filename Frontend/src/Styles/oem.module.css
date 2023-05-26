@@ -1,6 +1,7 @@
 .inputBox{
     padding: 5px 50px;
     display: flex;
+    gap: 10px;
 }
 .input{
     width: 100%;

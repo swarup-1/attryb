@@ -1,5 +1,5 @@
 import axios from "axios"
-let baseURL = "http://localhost:1001"
+let baseURL = process.env.REACT_APP_BASE_URL;
 export const getapi = ({search})=>{
     console.log('search:', search)
     if(search!=""){

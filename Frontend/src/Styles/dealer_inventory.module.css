@@ -111,19 +111,21 @@
   flex-direction: column;
   justify-content: center;
 }
-
-.show{
+.show {
   display: flex;
-  position: absolute;
+  position: fixed;
   border-radius: 5px;
   width: 80%;
-  top: 50px;
-  left: 100px;
-  background-color: #d3d3d3;
+  top: 54%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background-color: #e8e3eb;
+  box-shadow: 0px 4px 10px rgba(22, 0, 0, 0.4);
 }
-.hide{
+
+.hide {
   display: none;
-  position: absolute;
+  position: fixed;
 }
 .close{
   background-color: black;

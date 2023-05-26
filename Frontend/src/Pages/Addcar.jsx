@@ -75,7 +75,7 @@ const AddCar = () => {
   return (
     <div className={styles.container} >
         <form onSubmit={submitRegister} className={styles.box}>
-            <input name="image" type="text" value={carDetails.image} onChange={handleInputChange} placeholder="Image URL" className={styles.input} required/>
+            <input name="image" type="text" value={carDetails.carImage} onChange={handleInputChange} placeholder="Image URL" className={styles.input} required/>
             <input name="title" type="text" value={carDetails.title} onChange={handleInputChange} placeholder="Title" className={styles.input} required/>
             <input name="kmsOnOdometer" type="number" value={carDetails.kmsOnOdometer} onChange={handleInputChange} placeholder="Kilometers on Odometer" className={styles.input} required   />
             <div className={styles.checkbox_label}>

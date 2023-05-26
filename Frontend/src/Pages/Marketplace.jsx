@@ -2,23 +2,22 @@ import React, { useEffect, useState } from "react";
 import styles from "../Styles/marketplace.module.css";
 import { getFun } from "../Redux/MarketPlace/marketplace.action";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Filters from "../Components/Filters";
 
 const Marketplace = () => {
   const store = useSelector((state) => state.marketplaceReducer);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
-  console.log('data:', data)
 
   useEffect(() => {
     dispatch(getFun(search));
   }, [search]);
 
   useEffect(() => {
-    setData(store?.marketplace);
+    if (Array.isArray(store?.marketplace)) {
+      setData(store.marketplace);
+    }
   }, [store]);
 
   return (
@@ -32,8 +31,7 @@ const Marketplace = () => {
           className={styles.input}
         />
       </div>
-      {data &&
-        data?.map((car, index) => (
+      {data?.map((car, index) => (
           <div className={styles.carItem} key={index}>
             <div className={styles.carImageContainer}>
               <img src={car?.image} alt="Car" className={styles.carImage} />

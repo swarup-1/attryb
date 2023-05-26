@@ -5,7 +5,7 @@ export const getFun=(search)=>async(dispatch)=>{
     console.log('search:', search)
     dispatch({type:LOADING});
     try {
-        let data=await axios.get(`http://localhost:1001/MarketplaceInventory/?search=${search}`,{
+        let data=await axios.get(`${process.env.REACT_APP_BASE_URL}/MarketplaceInventory/?search=${search}`,{
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem("token")

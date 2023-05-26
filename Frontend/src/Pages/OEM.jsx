@@ -18,7 +18,9 @@ const OEM = () => {
   }, [search]);
   
   useEffect(() => {
-    setData(store?.oemData);
+    if (Array.isArray(store?.oemData)){
+      setData(store?.oemData);
+    }
   }, [store]);
   return (
     <div>

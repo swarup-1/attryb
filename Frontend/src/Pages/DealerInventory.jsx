@@ -22,7 +22,7 @@ const DealerInventory = () => {
   return (
     <div className={styles.container}>
       {store?.dealer_inventory &&
-        store?.dealer_inventory.map((car, index) => (
+        store?.dealer_inventory?.map((car, index) => (
           <div className={styles.carItem} key={index}>
             <div className={styles.carImageContainer}>
               <img src={car?.image} alt="Car" className={styles.carImage} />

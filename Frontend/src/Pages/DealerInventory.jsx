@@ -7,8 +7,8 @@ import Popup from '../Components/popup';
 
 const DealerInventory = () => {
   const store = useSelector((state) => state.dealerInventoryReducer);
-  console.log('store:aaaaaaaa', store)
   const [update,setUpdate] = useState(false)
+  const [selected,setSelected] = useState(null)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let {id} = useParams()
@@ -39,8 +39,8 @@ const DealerInventory = () => {
                 <li>Registration Place: {car?.registrationPlace}</li>
               </ul>
               <div>
-              <button onClick={()=>setUpdate(true)} className={styles.edit_button}> Edit</button>
-              <div className={update?styles.show:styles.hide} ><Popup car={car} setUpdate={setUpdate} /><div className={styles.close} onClick={()=>setUpdate(false)} >X</div></div>
+              <button onClick={()=>{setUpdate(true); setSelected(car) }} className={styles.edit_button}> Edit</button>
+              <div className={update?styles.show:styles.hide} ><Popup car={selected} setUpdate={setUpdate} /><div className={styles.close} onClick={()=>setUpdate(false)} >X</div></div>
               <button onClick={(e)=>{e.preventDefault(); deleteFunction(car?._id)}} className={styles.delete_button}> Delete</button>
               </div>
             </div>

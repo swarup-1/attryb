@@ -2,17 +2,19 @@ import React, { useState } from 'react'
 import styles from '../Styles/authentication.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginFun, registerFun } from '../Redux/DealerAuth/dealer.action';
+import { useNavigate } from 'react-router-dom';
 
 const Authenticate = () => {
     const store=useSelector((state)=>state.dealerReducer);
-    console.log(store)
     const dispatch=useDispatch()
+    const navigate = useNavigate();
 
     const [registered, setRegistered] = useState(false)
     const registerState={ name:"", email:"", password:""}
     const loginState={ email:"", password:""}
     const [register,setRegister]=useState(registerState)
     const [login,setLogin]=useState(loginState)
+    console.log('login:', login)
     
     const handleRegister=(e)=>{
         setRegister({...register, [e.target.name]: e.target.value })
@@ -21,18 +23,19 @@ const Authenticate = () => {
         setLogin({...login, [e.target.name]: e.target.value })
     }
     const submitRegister=(e)=>{
-        if(register!=registerState){
-            dispatch(registerFun(register))
-            setRegistered(true)
-        }
-        e.preventDefault()
+      e.preventDefault()
+      if(register!=registerState){
+        dispatch(registerFun(register))
+        setRegistered(true)
+      }
     }
     const submitLogin=(e)=>{
+      e.preventDefault()
       if(login!=loginState){
         dispatch(loginFun(login))
       }
-      e.preventDefault()
     }
+    if(store.isAuth) navigate(`/`)
 
 
     return (

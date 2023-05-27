@@ -116,13 +116,13 @@
   position: fixed;
   border-radius: 5px;
   width: 80%;
+  height: 90%;
   top: 54%; 
   left: 50%; 
   transform: translate(-50%, -50%); 
   background-color: #e8e3eb;
   box-shadow: 0px 4px 10px rgba(22, 0, 0, 0.4);
 }
-
 .hide {
   display: none;
   position: fixed;

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const AddCar = () => {
   let {id} = useParams()
   const [obj,setObj] = useState({})
+  console.log('obj:', obj)
   const [carDetails, setCarDetails] = useState({
     image: '',
     title: '',
@@ -26,7 +27,7 @@ const AddCar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const getData = () =>{
-    axios.get(`http://localhost:1001/OEM/${id}`,{
+    axios.get(`${process.env.REACT_APP_BASE_URL}/OEM/${id}`,{
       headers: {
           'Content-Type': 'application/json',
           'Authorization': localStorage.getItem("token")
@@ -69,7 +70,6 @@ const AddCar = () => {
     event.preventDefault();
     dispatch(addFun(carDetails));
     navigate(`/dealerinventory`)
-    console.log('carDetails:', carDetails)
   };
   const { model, year, listPrice, availableColors, mileage, power, maxSpeed } = obj
   return (

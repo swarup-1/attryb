@@ -12,9 +12,7 @@ const AllRoutes = () => {
     <div>
         <Routes>
             <Route path="/" element={
-              <PrivateRoute>
                 <Marketplace />
-              </PrivateRoute>
             } />
             <Route path="/oem" element={
               <PrivateRoute>
